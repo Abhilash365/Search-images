@@ -1,7 +1,7 @@
 
 const apikey = '4Ojojg9YKTwWJKCDufFYXH1HxuvOC8XE0RyLc97EMGY';
 // 
-
+const icon  =document.querySelector('.material-symbols-outlined')
 const reload =document.querySelector('.reload');
 const input =document.querySelector('.inputTag')
 const form = document.querySelector("form");
@@ -108,6 +108,40 @@ loadmore.addEventListener('click',()=>{
    
 })
 
+})
+
+/// search -icon //
+
+icon.addEventListener("click",(e)=>{
+
+console.log("clicked search")
+
+    e.preventDefault();     //prevents auto submit
+
+    const inputtext = input.value.trim();  //inputs text
+
+
+if(inputtext !==''){
+    page = 1;
+    fetchImages(inputtext.trim(),page);
+   
+
+}
+else {
+    imgCon.innerHTML = `<h2> please enter a something</h2> `;  //if nothing 
+    loadmore.style.display = "none";
+
+    console.log("no thing")
+}
+
+loadmore.addEventListener('click',()=>{
+    // const innerText = input.value.trim();
+    
+    fetchImages(inputtext,++page)
+    console.log('clicke load')
+   console.log(total_pages)
+   
+})
 })
 
 
